@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Demo {
    ArrayList<Integer> input = new ArrayList<>();
@@ -10,31 +13,36 @@ public class Demo {
    {
 
    }
-   public void get_input()
+   public void get_input() throws IOException
    {
-       String in = "";
-       Scanner scn;
-       scn = new Scanner(System.in);
+       String in;
+       BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
        System.out.println("Initial Head start cylinder: ");
-       NeedleHead = scn.nextInt();
+       NeedleHead = Integer.parseInt(reader1.readLine());
+
+
        System.out.println("Enter sequence: ");
-       while(scn.hasNext())
+       in = reader1.readLine();
+       String str[] = in.split("[\\s]+");
+
+
+       int index;
+       for (String s:str)
        {
-           in+= scn.next();
-       }
-       for (int i =0; i < in.length(); i++)
-       {
-           int index = Integer.parseInt(String.valueOf(in.charAt(i)));
+           index = Integer.parseInt(s);
            input.add(index);
        }
-       System.out.println(input);
    }
-    public static void main(String...args)
+    public static void main(String...args) throws IOException
     {
-        /*Demo d = new Demo();
-        d.get_input();*/
-        //Disk di = new Disk(new //Your Class name());
+
+        //Demo d = new Demo();
+        //d.get_input();
+
+        //Disk di = new Disk(new FCFS_Algorithm());
+
         //di.callStrategy(d.NeedleHead, d.input);
+        //38 180 130 10 50 15 190 90 150
     }
 
 }
